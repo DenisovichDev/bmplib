@@ -68,3 +68,19 @@ unsigned char* loadBMP(char *filename, DIBHeader *DIBitmapHeader) {
     fclose(filePtr);
     return bitmapImage;
 }
+
+void getBufferArray(unsigned char* imageData, uint32_t size, const unsigned int bSize, color* buffer[bSize]) {
+	int counter = 0;
+	for (int i = 0; i < size; i += 4) {
+		int r = imageData[i    ];
+		int g = imageData[i + 1];
+		int b = imageData[i + 2];
+		int greyVal = ((float)r + (float)g + (float)b) / 3;
+
+		color* col = (color*) malloc(sizeof(color));
+		col->r = r; col->g = g; col->b = b; col->grey = greyVal;
+		buffer[counter] = col;
+
+		counter++;
+	}
+}

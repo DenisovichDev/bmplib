@@ -52,4 +52,6 @@ typedef struct COLOR color;
 
 unsigned char* loadBMP(char *filename, DIBHeader *bitmapInfoHeader);
 
+void getBufferArray(unsigned char* imageData, uint32_t size, const unsigned int bSize, color* buffer[bSize]);
+
 #endif
