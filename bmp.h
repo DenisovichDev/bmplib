@@ -7,39 +7,39 @@
 
 #pragma pack(push, 1)
 
-struct BITMAPFLEHEADER {        // For older versions 54 bytes
-  uint16_t  signature;          // Magic identifier: 0x4d42
-  uint32_t  filesize;           // File size in bytes
-  uint16_t  reserved1;          // Not used
-  uint16_t  reserved2;          // Not used
-  uint32_t  offset;             // Offset to pixel array
+struct BITMAPFLEHEADER {  // For older versions 54 bytes
+    uint16_t signature;   // Magic identifier: 0x4d42
+    uint32_t filesize;    // File size in bytes
+    uint16_t reserved1;   // Not used
+    uint16_t reserved2;   // Not used
+    uint32_t offset;      // Offset to pixel array
 };
 
 #pragma pack(pop)
 
 #pragma pack(push, 1)
 
-struct DIBHEADER {              // Bitmap V5 header could be substituted
-  uint32_t  DIBHeaderSize;      // DIB or BMP V5 Header size
-  int32_t   imgWidth;           // Width of the image
-  int32_t   imgHeight;          // Height of image
-  uint16_t  numPlanes;          // Number of color planes
-  uint16_t  bitsPerPixel;       // Bits per pixel
-  uint32_t  compression;        // Compression type
-  uint32_t  imageSizeBytes;     // Image size in bytes
-  int32_t   xPixelPerMeter;     // Pixels per meter in X
-  int32_t   yPixelPerMeter;     // Pixels per meter in Y
-  uint32_t  numColors;          // Number of colors in color table 
-  uint32_t  impColors;          // Important colors 
+struct DIBHEADER {            // Bitmap V5 header could be substituted
+    uint32_t DIBHeaderSize;   // DIB or BMP V5 Header size
+    int32_t imgWidth;         // Width of the image
+    int32_t imgHeight;        // Height of image
+    uint16_t numPlanes;       // Number of color planes
+    uint16_t bitsPerPixel;    // Bits per pixel
+    uint32_t compression;     // Compression type
+    uint32_t imageSizeBytes;  // Image size in bytes
+    int32_t xPixelPerMeter;   // Pixels per meter in X
+    int32_t yPixelPerMeter;   // Pixels per meter in Y
+    uint32_t numColors;       // Number of colors in color table
+    uint32_t impColors;       // Important colors
 };
 
 #pragma pack(pop)
 
 struct COLOR {
-	unsigned char r;            // Red Value
-	unsigned char g;            // Green value
-	unsigned char b;            // Blue value
-	unsigned char grey;         // Greyscale value
+    unsigned char r;     // Red Value
+    unsigned char g;     // Green value
+    unsigned char b;     // Blue value
+    unsigned char grey;  // Greyscale value
 };
 
 // Type Definitions
@@ -50,8 +50,9 @@ typedef struct COLOR color;
 
 // Function Prototypes
 
-unsigned char* loadBMP(char *filename, DIBHeader *bitmapInfoHeader);
+unsigned char* loadBMP(char* filename, DIBHeader* bitmapInfoHeader);
 
-void getBufferArray(unsigned char* imageData, uint32_t size, const unsigned int bSize, color* buffer[bSize]);
+void getBufferArray(unsigned char* imageData, uint32_t size,
+                    const unsigned int bSize, color* buffer[bSize]);
 
 #endif
