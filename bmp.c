@@ -29,9 +29,7 @@ unsigned char* loadBMP(char* filename, DIBHeader* DIBitmapHeader) {
 
     if (DIBitmapHeader->imageSizeBytes == 0) {
         DIBitmapHeader->imageSizeBytes =
-            ((DIBitmapHeader->imgHeight * DIBitmapHeader->imgWidth) *
-             DIBitmapHeader->bitsPerPixel) /
-            8;
+            ((DIBitmapHeader->imgHeight * DIBitmapHeader->imgWidth) * DIBitmapHeader->bitsPerPixel) / 8;
     }
 
     // This shifts the the file position pointer (similar to say, a cursor
