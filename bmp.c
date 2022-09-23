@@ -81,9 +81,7 @@ unsigned char* loadBMP(char* filename, DIBHeader* DIBitmapHeader) {
                 unsigned char temp = bitmapImage[idxFrom + offset];
                 bitmapImage[idxFrom + offset] = bitmapImage[idxTo + offset];
                 bitmapImage[idxTo + offset] = temp;
-
             }
-            
         }
     }
 
