@@ -68,13 +68,13 @@ unsigned char* loadBMP(char* filename, DIBHeader* DIBitmapHeader) {
         bitmapImage[imageIdx + 2] = tempRGB;
     }
 
-    // Rotate 180 Degrees
+    // Reverse the rows
     const int32_t rows = DIBitmapHeader->imgHeight;
     const int32_t cols = DIBitmapHeader->imgWidth;
     for (int j = 0; j < rows / 2 ; j++) {
         for (int i = 0; i < cols; i++) {
             int idxFrom = (j * cols + i) * increment;
-            int idxTo = ((rows - j - 1) * cols + (cols - i - 1)) * increment;
+            int idxTo = ((rows - j - 1) * cols + i) * increment;
             
             int offset;
             for (offset = 0; offset < increment; offset++) {
